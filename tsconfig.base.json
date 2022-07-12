@@ -20,6 +20,9 @@
       ],
       "@requirements/developing/feature-personification": [
         "libs/developing/feature-personification/src/index.ts"
+      ],
+      "@requirements/developing/ui-components": [
+        "libs/developing/ui-components/src/index.ts"
       ]
     }
   },

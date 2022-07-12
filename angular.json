@@ -5,6 +5,7 @@
     "developing": "apps/developing",
     "developing-domain": "libs/developing/domain",
     "developing-e2e": "apps/developing-e2e",
-    "developing-feature-personification": "libs/developing/feature-personification"
+    "developing-feature-personification": "libs/developing/feature-personification",
+    "developing-ui-components": "libs/developing/ui-components"
   }
 }

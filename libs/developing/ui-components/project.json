@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/developing/ui-components/src",
+  "prefix": "components",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/developing/ui-components"],
+      "options": {
+        "jestConfig": "libs/developing/ui-components/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/developing/ui-components/**/*.ts",
+          "libs/developing/ui-components/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:developing", "type:ui"]
+}
