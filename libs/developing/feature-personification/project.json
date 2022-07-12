@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/developing/feature-personification"],
+      "outputs": [
+        "coverage/libs/developing/feature-personification"
+      ],
       "options": {
         "jestConfig": "libs/developing/feature-personification/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,8 @@
       }
     }
   },
-  "tags": ["domain:developing", "type:feature"]
+  "tags": [
+    "domain:developing",
+    "type:feature"
+  ]
 }

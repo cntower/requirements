@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/developing/ui-components"],
+      "outputs": [
+        "coverage/libs/developing/ui-components"
+      ],
       "options": {
         "jestConfig": "libs/developing/ui-components/jest.config.ts",
         "passWithNoTests": true
@@ -36,7 +38,9 @@
     },
     "build-storybook": {
       "executor": "@storybook/angular:build-storybook",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputDir": "dist/storybook/developing-ui-components",
         "configDir": "libs/developing/ui-components/.storybook",
@@ -50,5 +54,8 @@
       }
     }
   },
-  "tags": ["domain:developing", "type:ui"]
+  "tags": [
+    "domain:developing",
+    "type:ui"
+  ]
 }

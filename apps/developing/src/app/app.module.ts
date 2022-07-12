@@ -7,6 +7,7 @@ import { DevelopingFeaturePersonificationModule } from '@requirements/developing
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -16,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

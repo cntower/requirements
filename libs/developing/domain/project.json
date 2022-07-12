@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/developing/domain"],
+      "outputs": [
+        "coverage/libs/developing/domain"
+      ],
       "options": {
         "jestConfig": "libs/developing/domain/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,8 @@
       }
     }
   },
-  "tags": ["domain:developing", "type:domain-logic"]
+  "tags": [
+    "domain:developing",
+    "type:domain-logic"
+  ]
 }
