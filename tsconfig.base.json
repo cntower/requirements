@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@requirements/developing/domain": [
+        "libs/developing/domain/src/index.ts"
+      ],
+      "@requirements/developing/feature-personification": [
+        "libs/developing/feature-personification/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

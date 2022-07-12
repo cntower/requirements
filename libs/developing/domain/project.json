@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/developing/domain/src",
+  "prefix": "developing",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/developing/domain"],
+      "options": {
+        "jestConfig": "libs/developing/domain/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/developing/domain/**/*.ts",
+          "libs/developing/domain/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:developing", "type:domain-logic"]
+}
