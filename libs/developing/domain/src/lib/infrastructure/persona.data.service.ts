@@ -5,7 +5,8 @@ import { Persona } from '../entities/persona';
 
 @Injectable({ providedIn: 'root' })
 export class PersonaDataService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   load(): Observable<Persona[]> {
     // Uncomment if needed
@@ -17,16 +18,18 @@ export class PersonaDataService {
         */
 
     return of([
-      { id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet' },
+      { id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet', profileUrl: '', },
       {
         id: 2,
         name: 'At vero eos',
         description: 'At vero eos et accusam et justo duo dolores',
+        profileUrl: '',
       },
       {
         id: 3,
         name: 'Duis autem',
         description: 'Duis autem vel eum iriure dolor in hendrerit',
+        profileUrl: '',
       },
     ]);
   }
