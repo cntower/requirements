@@ -6,7 +6,11 @@
         "requirement": "persona should contain name, link to its profile and short description"
       },
       {
-        "requirement": "persona should have 'pinned' state"
+        "requirement": "persona component should have 'pinned' state",
+        "examples": [
+          "persona component has pin button",
+          "click on pin button emit pin event"
+        ]
       },
       {
         "requirement": "personas should be presented as list"

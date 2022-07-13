@@ -1,7 +1,10 @@
 module.exports = {
   stories: [],
   addons: [
-    '@storybook/addon-essentials',
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    '@storybook/addon-a11y',
   ],
   // uncomment the property below if you want to apply some webpack config globally
   // webpackFinal: async (config, { configType }) => {

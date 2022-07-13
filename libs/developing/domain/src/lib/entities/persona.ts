@@ -3,4 +3,5 @@ export interface Persona {
   name: string;
   description: string;
   profileUrl: string;
+  pinned?: boolean;
 }
