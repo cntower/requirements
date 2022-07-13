@@ -1,13 +1,18 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { PersonaComponent } from './persona.component';
 import { Persona } from "../../../../domain/src";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 
 export default {
   title: 'PersonaComponent',
   component: PersonaComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [
+        MatButtonModule,
+        MatIconModule,
+      ],
     }),
   ],
 } as Meta<PersonaComponent>;

@@ -1,3 +1,59 @@
 [
-    "as a developer, I want to have personas, so I will better understand users needs and have better empathy 'em"
+  {
+    "story": "as a software developer, I want to have personas, so I will better understand users needs and have better empathy 'em",
+    "requirements": [
+      {
+        "requirement": "persona should contain name, link to its profile and short description"
+      },
+      {
+        "requirement": "persona should have 'pinned' state"
+      },
+      {
+        "requirement": "personas should be presented as list"
+      },
+      {
+        "requirement": "pinned personas should be displayed at the top of the list",
+        "examples": [
+          {
+            "example": "pin persona",
+            "scenario": {
+              "given": {
+                "personas": [
+                  {
+                    "name": "John",
+                    "pinned": false
+                  },
+                  {
+                    "name": "Donald",
+                    "pinned": false
+                  },
+                  {
+                    "name": "Stan",
+                    "pinned": false
+                  }
+                ]
+              },
+              "when": "pin persona Stan",
+              "than": {
+                "personas": [
+                  {
+                    "name": "Stan",
+                    "pinned": true
+                  },
+                  {
+                    "name": "John",
+                    "pinned": false
+                  },
+                  {
+                    "name": "Donald",
+                    "pinned": false
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
 ]

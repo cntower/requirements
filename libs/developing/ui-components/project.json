@@ -45,6 +45,7 @@
         "outputDir": "dist/storybook/developing-ui-components",
         "configDir": "libs/developing/ui-components/.storybook",
         "browserTarget": "developing-ui-components:build-storybook",
+        "styles": ["libs/developing/ui-components/.storybook/styles.scss"],
         "compodoc": false
       },
       "configurations": {

@@ -23,7 +23,8 @@
       ],
       "@requirements/developing/ui-components": [
         "libs/developing/ui-components/src/index.ts"
-      ]
+      ],
+      "@requirements/shared/ui-styles": ["libs/shared/ui-styles/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

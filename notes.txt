@@ -7,3 +7,5 @@ nx g @angular-architects/ddd:ui components --domain developing
 nx g @nrwl/angular:storybook-configuration developing-ui-components
 
 npx nx g @angular/material:ng-add --project=developing
+
+nx g @angular-architects/ddd:ui styles --shared
