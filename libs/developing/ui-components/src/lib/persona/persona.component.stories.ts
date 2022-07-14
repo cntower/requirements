@@ -29,7 +29,7 @@ const Template: Story<PersonaComponent> = (args: PersonaComponent) => ({
   }
 });
 
-const persona: Persona = {
+export const personaData: Persona = {
   id: 1,
   name: 'Isabel',
   description: 'Frontend Developer, 26',
@@ -40,7 +40,7 @@ const persona: Persona = {
 export const Default: Story<PersonaComponent> = Template.bind({});
 Default.args = {
   ...Default.args,
-  persona,
+  persona: personaData,
 };
 
 export const Pinned = Template.bind({});
@@ -59,9 +59,9 @@ Default.play = async ({ args, canvasElement }) => {
 //  Example: persona should contain name, link to its profile and short description
 async function personaShouldContainNameLinkToItsProfileAndShortDescription(canvasElement: HTMLElement) {
   const canvas = within(canvasElement);
-  await expect(canvasElement.innerText).toContain(persona.name);
-  await expect(canvasElement.innerText).toContain(persona.description);
-  await expect(canvas.getByTestId('profile-url')).toHaveAttribute('href', persona.profileUrl);
+  await expect(canvasElement.innerText).toContain(personaData.name);
+  await expect(canvasElement.innerText).toContain(personaData.description);
+  await expect(canvas.getByTestId('profile-url')).toHaveAttribute('href', personaData.profileUrl);
 }
 
 //  Example: click on pin button emit pin event

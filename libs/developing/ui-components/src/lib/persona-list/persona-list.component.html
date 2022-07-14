@@ -1,0 +1,5 @@
+<components-persona
+  *ngFor="let persona of personasInOrder"
+  [persona]="persona"
+  (pin)="onPin($event)"
+></components-persona>
