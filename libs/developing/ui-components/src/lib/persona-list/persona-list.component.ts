@@ -16,7 +16,7 @@ export class PersonaListComponent {
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  pin = new EventEmitter<number>();
+  pinPerson = new EventEmitter<number>();
 
   @Input()
   set personas(personas: Persona[]) {
@@ -27,7 +27,7 @@ export class PersonaListComponent {
   }
 
   onPin(id: number) {
-    this.pin.emit(id);
+    this.pinPerson.emit(id);
   }
 
 }

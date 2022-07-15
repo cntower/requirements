@@ -53,10 +53,10 @@ Pinned.args = {
 
 Default.play = async ({ args, canvasElement }) => {
   await personaShouldContainNameLinkToItsProfileAndShortDescription(canvasElement);
-  await clickOnPinButtonEmitPinEvent(args, canvasElement);
+  await clickOnPinButtonEmitsPinEvent(args, canvasElement);
 };
 
-//  Example: persona should contain name, link to its profile and short description
+//  persona should contain name, link to its profile and short description
 async function personaShouldContainNameLinkToItsProfileAndShortDescription(canvasElement: HTMLElement) {
   const canvas = within(canvasElement);
   await expect(canvasElement.innerText).toContain(personaData.name);
@@ -64,10 +64,10 @@ async function personaShouldContainNameLinkToItsProfileAndShortDescription(canva
   await expect(canvas.getByTestId('profile-url')).toHaveAttribute('href', personaData.profileUrl);
 }
 
-//  Example: click on pin button emit pin event
-async function clickOnPinButtonEmitPinEvent(args: PersonaComponent, canvasElement: HTMLElement) {
+//  click on pin button emits pin event
+async function clickOnPinButtonEmitsPinEvent(args: PersonaComponent, canvasElement: HTMLElement) {
   await whenTheUserClicksPinButton(canvasElement);
-  await thenItEmitPinEvent(args);
+  await thenTheComponentEmitsPinEvent(args);
 }
 
 async function whenTheUserClicksPinButton(canvasElement: HTMLElement): Promise<any> {
@@ -75,6 +75,6 @@ async function whenTheUserClicksPinButton(canvasElement: HTMLElement): Promise<a
   return userEvent.click(canvas.getByTestId('pin-button'));
 }
 
-async function thenItEmitPinEvent(args: PersonaComponent): Promise<void> {
+async function thenTheComponentEmitsPinEvent(args: PersonaComponent): Promise<void> {
   return await waitFor(() => expect(args.pin).toHaveBeenCalled());
 }

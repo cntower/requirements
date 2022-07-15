@@ -1,8 +1,9 @@
-#{{persona.id}} <a [href]="persona.profileUrl" target="_blank" data-testid="profile-url"> {{persona.name}} </a> / {{persona.description}}
+#{{persona.id}} <a [href]="persona.profileUrl" target="_blank"
+                   data-testid="profile-url"> {{persona.name}} </a> / {{persona.description}}
 <button
   mat-icon-button
   color="{{persona.pinned?'primary':'secondary'}}"
-  aria-label="Pin"
+  [attr.aria-label]="'Pin button (pinned:' + persona.pinned + ')'"
   role="button"
   data-testid="pin-button"
   (click)="onPin()"

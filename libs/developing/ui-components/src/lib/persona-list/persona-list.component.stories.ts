@@ -1,10 +1,11 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { PersonaListComponent } from './persona-list.component';
 import { Persona } from "../../../../domain/src";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { personaData } from "../persona/persona.component.stories";
 import { PersonaComponent } from "../persona/persona.component";
+import { ClickOnPinButtonInPersonasListEmitsPinEvent } from "./click-on-pin-button-in-personas-list-emits-pin-event";
 
 export default {
   title: 'PersonaListComponent',
@@ -19,7 +20,7 @@ export default {
     }),
   ],
   argTypes: {
-    pin: { action: true }
+    pinPerson: { action: true }
   },
   excludeStories: /.*Data$/,
 } as Meta<PersonaListComponent>;
@@ -35,24 +36,32 @@ const personas: Persona[] = [
     ...personaData,
     id: 1,
     name: "John",
-    pinned: false
   },
   {
     ...personaData,
     id: 2,
     name: "Donald",
-    pinned: false
   },
   {
     ...personaData,
     id: 3,
     name: "Stan",
-    pinned: false
   }
 ];
 
-export const Default: Story<PersonaListComponent> = Template.bind({});
-Default.args = {
-  ...Default.args,
+export const PersonasPresentedAsList: Story<PersonaListComponent> = Template.bind({});
+PersonasPresentedAsList.args = {
+  ...PersonasPresentedAsList.args,
   personas,
 };
+
+export const PinnedPersonasDisplayAtTheTopOfTheList: Story<PersonaListComponent> = Template.bind({});
+PinnedPersonasDisplayAtTheTopOfTheList.args = {
+  ...PersonasPresentedAsList.args,
+  personas: [ personas[0], personas[1], { ...personas[2], pinned: true, } ],
+};
+
+PersonasPresentedAsList.play = async ({ args, canvasElement }) => {
+  await new ClickOnPinButtonInPersonasListEmitsPinEvent(args, canvasElement, personas).play();
+};
+

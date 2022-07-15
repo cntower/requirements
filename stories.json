@@ -9,53 +9,20 @@
         "requirement": "persona component should have 'pinned' state",
         "examples": [
           "persona component has pin button",
-          "click on pin button emit pin event"
+          "click on pin button emits pin event",
+          "click on pin button in personas list emits pin event"
         ]
       },
       {
-        "requirement": "personas should be presented as list"
+        "requirement": "persona components should have ability to by presented as list",
+        "examples": [
+          "personas presented as list"
+        ]
       },
       {
         "requirement": "pinned personas should be displayed at the top of the list",
         "examples": [
-          {
-            "example": "pin persona",
-            "scenario": {
-              "given": {
-                "personas": [
-                  {
-                    "name": "John",
-                    "pinned": false
-                  },
-                  {
-                    "name": "Donald",
-                    "pinned": false
-                  },
-                  {
-                    "name": "Stan",
-                    "pinned": false
-                  }
-                ]
-              },
-              "when": "pin persona Stan",
-              "than": {
-                "personas": [
-                  {
-                    "name": "Stan",
-                    "pinned": true
-                  },
-                  {
-                    "name": "John",
-                    "pinned": false
-                  },
-                  {
-                    "name": "Donald",
-                    "pinned": false
-                  }
-                ]
-              }
-            }
-          }
+          "pinned personas display at the top of the list"
         ]
       }
     ]
