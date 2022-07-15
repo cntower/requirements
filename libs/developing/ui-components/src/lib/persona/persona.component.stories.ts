@@ -1,10 +1,10 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { PersonaComponent } from './persona.component';
 import { Persona } from "../../../../domain/src";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { userEvent, waitFor, within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { ClickOnPinButtonEmitsPinEvent } from "./interactions/click-on-pin-button-emits-pin-event";
+import { personaShouldContainNameLinkToItsProfileAndShortDescription } from "./interactions/persona-should-contain-name-link-to-its-profile-and-short-description";
 
 export default {
   title: 'PersonaComponent',
@@ -52,29 +52,7 @@ Pinned.args = {
 };
 
 Default.play = async ({ args, canvasElement }) => {
-  await personaShouldContainNameLinkToItsProfileAndShortDescription(canvasElement);
-  await clickOnPinButtonEmitsPinEvent(args, canvasElement);
+  await new personaShouldContainNameLinkToItsProfileAndShortDescription(args, canvasElement, personaData).play();
+  await new ClickOnPinButtonEmitsPinEvent(args, canvasElement).play();
 };
 
-//  persona should contain name, link to its profile and short description
-async function personaShouldContainNameLinkToItsProfileAndShortDescription(canvasElement: HTMLElement) {
-  const canvas = within(canvasElement);
-  await expect(canvasElement.innerText).toContain(personaData.name);
-  await expect(canvasElement.innerText).toContain(personaData.description);
-  await expect(canvas.getByTestId('profile-url')).toHaveAttribute('href', personaData.profileUrl);
-}
-
-//  click on pin button emits pin event
-async function clickOnPinButtonEmitsPinEvent(args: PersonaComponent, canvasElement: HTMLElement) {
-  await whenTheUserClicksPinButton(canvasElement);
-  await thenTheComponentEmitsPinEvent(args);
-}
-
-async function whenTheUserClicksPinButton(canvasElement: HTMLElement): Promise<any> {
-  const canvas = within(canvasElement);
-  return userEvent.click(canvas.getByTestId('pin-button'));
-}
-
-async function thenTheComponentEmitsPinEvent(args: PersonaComponent): Promise<void> {
-  return await waitFor(() => expect(args.pin).toHaveBeenCalled());
-}

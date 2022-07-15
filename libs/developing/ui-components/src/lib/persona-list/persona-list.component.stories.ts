@@ -5,7 +5,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { personaData } from "../persona/persona.component.stories";
 import { PersonaComponent } from "../persona/persona.component";
-import { ClickOnPinButtonInPersonasListEmitsPinEvent } from "./click-on-pin-button-in-personas-list-emits-pin-event";
+import { ClickOnPinButtonInPersonasListEmitsPinEvent } from "./interactions/click-on-pin-button-in-personas-list-emits-pin-event";
 
 export default {
   title: 'PersonaListComponent',

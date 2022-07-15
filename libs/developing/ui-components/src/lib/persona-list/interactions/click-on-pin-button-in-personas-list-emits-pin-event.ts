@@ -1,5 +1,5 @@
 // click on pin button in personas list emits pin event
-import { PersonaListComponent } from "./persona-list.component";
+import { PersonaListComponent } from "../persona-list.component";
 import { Persona } from "@requirements/developing/domain";
 import { userEvent, waitFor, within } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
