@@ -3,8 +3,8 @@ import { Persona } from "@requirements/developing/domain";
 import { within } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
 
-//  persona should contain name, link to its profile and short description
-export class personaShouldContainNameLinkToItsProfileAndShortDescription {
+//  persona contains name, link to its profile and short description
+export class PersonaContainsNameLinkToItsProfileAndShortDescription {
 
   constructor(private args: PersonaComponent, private canvasElement: HTMLElement, private personaData: Persona) {
   }

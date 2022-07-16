@@ -12,7 +12,7 @@ module.exports = {
   ],
   addons: [...rootMain.addons],
   webpackFinal: async (config, { configType }) => {
-    // apply any global webpack configs that might have been specified in .storybook/main.js
+    // apply any global webpack configs that might have been specified in storybook/main.js
     if (rootMain.webpackFinal) {
       config = await rootMain.webpackFinal(config, { configType });
     }

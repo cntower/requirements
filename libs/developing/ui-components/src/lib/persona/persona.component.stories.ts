@@ -3,8 +3,10 @@ import { PersonaComponent } from './persona.component';
 import { Persona } from "../../../../domain/src";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { ClickOnPinButtonEmitsPinEvent } from "./interactions/click-on-pin-button-emits-pin-event";
-import { personaShouldContainNameLinkToItsProfileAndShortDescription } from "./interactions/persona-should-contain-name-link-to-its-profile-and-short-description";
+import { PersonaContainsNameLinkToItsProfileAndShortDescription } from "./.storybook/persona-contains-name-link-to-its-profile-and-short-description";
+import { PinnedPersonaHasColoredPinButton } from "./.storybook/pinned-persona-has-colored-pin-button";
+import { createStory } from "../../../.storybook/create-story";
+import { ClickOnPinButtonEmitsPinEvent } from "./.storybook/click-on-pin-button-emits-pin-event";
 
 export default {
   title: 'PersonaComponent',
@@ -37,22 +39,23 @@ export const personaData: Persona = {
   pinned: false,
 }
 
-export const Default: Story<PersonaComponent> = Template.bind({});
-Default.args = {
-  ...Default.args,
-  persona: personaData,
-};
+export const DefaultPersona = createStory<PersonaComponent>({
+  Template, args: { persona: personaData },
+  play: async ({ args, canvasElement }) => {
+    await new PersonaContainsNameLinkToItsProfileAndShortDescription(args, canvasElement, personaData).play();
+    await new ClickOnPinButtonEmitsPinEvent(args, canvasElement).play();
+  }
+});
 
-export const Pinned = Template.bind({});
-Pinned.args = {
-  persona: {
-    ...Default.args['persona'],
-    pinned: true
-  } as Persona,
-};
-
-Default.play = async ({ args, canvasElement }) => {
-  await new personaShouldContainNameLinkToItsProfileAndShortDescription(args, canvasElement, personaData).play();
-  await new ClickOnPinButtonEmitsPinEvent(args, canvasElement).play();
-};
-
+export const PinnedPersona = createStory<PersonaComponent>({
+  Template,
+  args: {
+    persona: {
+      ...personaData,
+      pinned: true,
+    }
+  },
+  play: async ({ args, canvasElement }) => {
+    await new PinnedPersonaHasColoredPinButton(args, canvasElement, personaData).play();
+  }
+});

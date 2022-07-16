@@ -3,12 +3,16 @@
     "story": "as a software developer, I want to have personas, so I will better understand users needs and have better empathy 'em",
     "requirements": [
       {
-        "requirement": "persona should contain name, link to its profile and short description"
+        "requirement": "persona should contain name, link to its profile and short description",
+        "examples": [
+          "persona contains name, link to its profile and short description"
+        ]
       },
       {
         "requirement": "persona component should have 'pinned' state",
         "examples": [
           "persona component has pin button",
+          "pinned persona has colored pin button",
           "click on pin button emits pin event",
           "click on pin button in personas list emits pin event"
         ]
