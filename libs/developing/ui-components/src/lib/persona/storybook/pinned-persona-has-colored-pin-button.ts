@@ -1,12 +1,9 @@
 import { PersonaComponent } from "../persona.component";
-import { Persona } from "@requirements/developing/domain";
 import { within } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
+import { ExampleBase } from "../../../../.storybook/example.base";
 
-export class PinnedPersonaHasColoredPinButton {
-
-  constructor(private args: PersonaComponent, private canvasElement: HTMLElement, private personaData: Persona) {
-  }
+export class PinnedPersonaHasColoredPinButton extends ExampleBase<PersonaComponent> {
 
   async play() {
     await this.thenTheComponentHasColoredPinButton();

@@ -1,26 +1,10 @@
-import { Story } from "@storybook/angular";
+import { Playable } from "./playable";
 
-export abstract class ExampleBase<TComponent> {
-  protected canvasElement: HTMLElement;
+export abstract class ExampleBase<TComponent> implements Playable {
 
-  constructor(protected givenStory: Story<TComponent>, protected args: Partial<TComponent>) {
-    this.setup();
-    this.handlePlayFunction();
+  constructor(protected args: Partial<TComponent>, protected canvasElement: HTMLElement) {
   }
 
-  abstract setup(): void;
+  abstract play(): Promise<void>;
 
-  abstract interaction(): Promise<void>;
-
-  protected handlePlayFunction() {
-    const play = this.givenStory.play?.bind({});
-    this.givenStory.play = async ({ args, canvasElement }) => {
-      this.args = args;
-      this.canvasElement = canvasElement;
-      if (play) {
-        await play({ args, canvasElement });
-      }
-      await this.interaction();
-    }
-  }
 }

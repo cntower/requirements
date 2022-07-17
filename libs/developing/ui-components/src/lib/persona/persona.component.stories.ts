@@ -3,10 +3,10 @@ import { PersonaComponent } from './persona.component';
 import { Persona } from "../../../../domain/src";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { PersonaContainsNameLinkToItsProfileAndShortDescription } from "./.storybook/persona-contains-name-link-to-its-profile-and-short-description";
-import { PinnedPersonaHasColoredPinButton } from "./.storybook/pinned-persona-has-colored-pin-button";
+import { PersonaContainsNameLinkToItsProfileAndShortDescription } from "./storybook/persona-contains-name-link-to-its-profile-and-short-description";
+import { PinnedPersonaHasColoredPinButton } from "./storybook/pinned-persona-has-colored-pin-button";
 import { createStory } from "../../../.storybook/create-story";
-import { ClickOnPinButtonEmitsPinEvent } from "./.storybook/click-on-pin-button-emits-pin-event";
+import { ClickOnPinButtonEmitsPinEvent } from "./storybook/click-on-pin-button-emits-pin-event";
 
 export default {
   title: 'PersonaComponent',
@@ -42,7 +42,7 @@ export const personaData: Persona = {
 export const DefaultPersona = createStory<PersonaComponent>({
   Template, args: { persona: personaData },
   play: async ({ args, canvasElement }) => {
-    await new PersonaContainsNameLinkToItsProfileAndShortDescription(args, canvasElement, personaData).play();
+    await new PersonaContainsNameLinkToItsProfileAndShortDescription(args, canvasElement).play();
     await new ClickOnPinButtonEmitsPinEvent(args, canvasElement).play();
   }
 });
@@ -56,6 +56,6 @@ export const PinnedPersona = createStory<PersonaComponent>({
     }
   },
   play: async ({ args, canvasElement }) => {
-    await new PinnedPersonaHasColoredPinButton(args, canvasElement, personaData).play();
+    await new PinnedPersonaHasColoredPinButton(args, canvasElement).play();
   }
 });
