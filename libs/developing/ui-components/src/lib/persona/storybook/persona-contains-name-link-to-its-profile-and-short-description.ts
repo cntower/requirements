@@ -8,9 +8,9 @@ export class PersonaContainsNameLinkToItsProfileAndShortDescription extends Exam
 
   async play() {
     const canvas = within(this.canvasElement);
-    await expect(this.canvasElement.innerText).toContain(this.args.persona.name);
-    await expect(this.canvasElement.innerText).toContain(this.args.persona.description);
-    await expect(canvas.getByTestId('profile-url')).toHaveAttribute('href', this.args.persona.profileUrl);
+    await expect(this.canvasElement.innerText).toContain(this.args.persona!.name);
+    await expect(this.canvasElement.innerText).toContain(this.args.persona!.description);
+    await expect(canvas.getByTestId('profile-url')).toHaveAttribute('href', this.args.persona!.profileUrl);
   }
 
 }

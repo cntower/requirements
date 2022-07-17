@@ -11,3 +11,5 @@ npx nx g @angular/material:ng-add --project=developing
 nx g @angular-architects/ddd:ui styles --shared
 
 nx g @nrwl/angular:storybook-configuration --name=developing-feature-personification --tsConfiguration
+
+nx g @nrwl/angular:storybook-configuration --name=shared-storybook --tsConfiguration

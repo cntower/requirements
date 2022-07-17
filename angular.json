@@ -8,6 +8,7 @@
     "developing-feature-personification": "libs/developing/feature-personification",
     "developing-feature-personification-e2e": "apps/developing-feature-personification-e2e",
     "developing-ui-components": "libs/developing/ui-components",
+    "shared-storybook": "libs/shared/storybook",
     "shared-ui-styles": "libs/shared/ui-styles"
   }
 }

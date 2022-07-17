@@ -9,7 +9,7 @@ import { Persona } from "@requirements/developing/domain";
 })
 export class PersonaComponent {
 
-  @Input() persona: Persona;
+  @Input() persona!: Persona;
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output()

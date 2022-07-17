@@ -6,7 +6,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "postinstall": "ngcc --properties es2020 browser module main"
+    "postinstall": "ngcc --properties es2020 browser module main",
+    "test-storybook": "test-storybook",
+    "storybook": "nx run shared-storybook:storybook"
   },
   "private": true,
   "devDependencies": {
@@ -37,6 +39,7 @@
     "@storybook/core-server": "6.5.9",
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "6.5.9",
+    "@storybook/test-runner": "^0.4.0",
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.7",
