@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonificationFacade } from '@requirements/developing/domain';
+import { tap } from "rxjs";
 
 @Component({
   selector: 'developing-personification',
@@ -7,7 +8,9 @@ import { PersonificationFacade } from '@requirements/developing/domain';
   styleUrls: ['./personification.component.scss'],
 })
 export class PersonificationComponent implements OnInit {
-  personaList$ = this.personificationFacade.personaList$;
+  personaList$ = this.personificationFacade.personaList$.pipe(
+    tap(console.log)
+  );
 
   constructor(private personificationFacade: PersonificationFacade) {}
 

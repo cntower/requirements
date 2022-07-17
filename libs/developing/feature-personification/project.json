@@ -41,7 +41,8 @@
         "outputDir": "dist/storybook/developing-feature-personification",
         "configDir": "libs/developing/feature-personification/.storybook",
         "browserTarget": "developing-feature-personification:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": ["libs/developing/feature-personification/.storybook/styles.scss"]
       },
       "configurations": {
         "ci": {

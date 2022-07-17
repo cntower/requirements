@@ -6,7 +6,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { PersonaListComponent } from './persona-list/persona-list.component';
 
 @NgModule({
-  imports: [CommonModule, MatButtonModule, MatIconModule],
-  declarations: [PersonaComponent, PersonaListComponent],
+  imports: [ CommonModule, MatButtonModule, MatIconModule ],
+  declarations: [ PersonaComponent, PersonaListComponent ],
+  exports: [
+    PersonaComponent,
+    PersonaListComponent
+  ]
 })
-export class DevelopingUiComponentsModule {}
+export class DevelopingUiComponentsModule {
+}

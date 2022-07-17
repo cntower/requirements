@@ -1,9 +1,3 @@
 <h1>developing-personification</h1>
 
-<table class="table">
-  <tr *ngFor="let persona of personaList$ | async">
-    <td>{{ persona.id }}</td>
-    <td>{{ persona.name }}</td>
-    <td>{{ persona.description }}</td>
-  </tr>
-</table>
+<components-persona-list [personas]="personaList$ | async"></components-persona-list>

@@ -11,7 +11,9 @@ export class PersonificationFacade {
   personaList$ = this.store.pipe(select(PersonaSelectors.getAllPersona));
   selectedPersona$ = this.store.pipe(select(PersonaSelectors.getSelected));
 
-  constructor(private store: Store<fromPersona.PersonaPartialState>) {}
+  constructor(private store: Store<fromPersona.PersonaPartialState>) {
+    console.log(store, )
+  }
 
   load(): void {
     this.store.dispatch(loadPersona());
