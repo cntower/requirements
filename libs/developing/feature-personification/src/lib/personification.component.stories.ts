@@ -1,12 +1,14 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { PersonificationComponent } from './personification.component';
-import { PersonificationFacade } from "../../../domain/src";
+import { Persona, PersonificationFacade } from "../../../domain/src";
 import * as jest from 'jest-mock';
-import { of } from "rxjs";
+import { BehaviorSubject, of } from "rxjs";
 import { DevelopingUiComponentsModule } from "../../../ui-components/src";
+import { personaData } from "../../../ui-components/src/lib/persona/persona.component.stories";
 
-const mockPersonificationFacade/*: PersonificationFacade*/ = {
-  personaList$: of([
+class MockPersonificationFacade implements Omit<PersonificationFacade, "store"> {
+
+  private _personaListSubject$ = new BehaviorSubject<Persona[]>([
     {
       "id": 1,
       "name": "Lorem ipsum",
@@ -25,11 +27,24 @@ const mockPersonificationFacade/*: PersonificationFacade*/ = {
       "description": "Duis autem vel eum iriure dolor in hendrerit",
       "profileUrl": ""
     }
-  ]),
-  loaded$: of(true),
-  selectedPersona$: null,
-  load: jest.fn(),
-  store: null
+  ]);
+
+  personaList$ = this._personaListSubject$.asObservable();
+
+  loaded$ = of(true);
+
+  selectedPersona$ = of(personaData);
+
+  load = jest.fn();
+
+  // @ts-ignore
+  pinPerson = jest.fn((id: number) => {
+    console.log(this._personaListSubject$.value);
+    this._personaListSubject$.next(this._personaListSubject$.value.map((persona) => ({
+      ...persona,
+      pinned: (persona.id === id) ? !persona.pinned : persona.pinned
+    })));
+  });
 }
 
 export default {
@@ -41,7 +56,7 @@ export default {
         DevelopingUiComponentsModule,
       ],
       providers: [
-        { provide: PersonificationFacade, useValue: mockPersonificationFacade }
+        { provide: PersonificationFacade, useClass: MockPersonificationFacade }
       ]
     }),
   ],

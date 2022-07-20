@@ -21,4 +21,8 @@ export class PersonificationComponent implements OnInit {
   load(): void {
     this.personificationFacade.load();
   }
+
+  onPinPerson(id: number){
+    this.personificationFacade.pinPerson(id);
+  }
 }
